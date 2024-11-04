@@ -52,8 +52,8 @@ for (db in vastdbFiles) {
 }
 
 # custom install from include.R
-loadPackages(c("MASS", "limma", "getopt", "optparse", "RColorBrewer", "reshape2", "ggplot2", "grid", "parallel", "devtools"), local.lib=paste(c(scriptPath,"/R/Rlib"), collapse=""))
-
+loadPackages(c("MASS", "getopt", "optparse", "RColorBrewer", "reshape2", "ggplot2", "grid", "parallel", "devtools"), local.lib=paste(c(scriptPath,"/R/Rlib"), collapse=""))
+BiocManager::install("limma")
 # install github packages
 if (!require('psiplot', character.only=T)) {
   install_github('kcha/psiplot', lib=paste(c(scriptPath,"/R/Rlib"), collapse=""))
