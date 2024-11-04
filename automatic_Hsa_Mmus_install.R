@@ -27,29 +27,6 @@ writeLines(joinStr("Using ", R.Version()$version.string))
 # Source Rlib.
 source(paste(c(scriptPath,"/R/Rlib/include.R"), collapse=""))
 
-downloadDb <- function(speUrl, speFile) {
-   system("mkdir -p VASTDB")
-   if(system(joinStr("wget ", speUrl)) > 0) {
-     stop(joinStr("Cannot download ", speUrl))
-   }
-   if(system(paste("tar xzvf ", speFile, " -C VASTDB")) > 0) {
-     stop(joinStr("Cannot tar xzvf ", speFile))
-   }
-   if(system(joinStr("rm ", speFile)) > 0) {
-     stop(joinStr("Cannot rm ", speFile))
-   }
-}
-
-# Predefined database selection (without user prompt)
-vastdbFiles <- c(
-  "vastdb.mm2.23.06.20.tar.gz" # Corresponds to mm10
-  # Add any additional databases here if needed
-)
-
-for (db in vastdbFiles) {
-  Url <- paste("https://vastdb.crg.eu/libs/", db, sep = "")
-  downloadDb(Url, db)
-}
 
 # custom install from include.R
 loadPackages(c("MASS", "getopt", "optparse", "RColorBrewer", "reshape2", "ggplot2", "grid", "parallel", "devtools"), local.lib=paste(c(scriptPath,"/R/Rlib"), collapse=""))
