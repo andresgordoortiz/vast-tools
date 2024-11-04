@@ -42,10 +42,7 @@ downloadDb <- function(speUrl, speFile) {
 
 # Predefined database selection (without user prompt)
 vastdbFiles <- c(
-  "vastdb.hsa.23.06.20.tar.gz",
-  "vastdb.hs2.23.06.20.tar.gz",
-  "vastdb.mmu.23.06.20.tar.gz",
-  "vastdb.mm2.23.06.20.tar.gz"
+  "vastdb.mm2.23.06.20.tar.gz" # Corresponds to mm10
   # Add any additional databases here if needed
 )
 
