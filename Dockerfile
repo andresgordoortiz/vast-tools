@@ -46,5 +46,5 @@ WORKDIR /usr/local/vast-tools
 RUN /usr/local/vast-tools/automatic_Hsa_Mmus_install.R --quiet
 
 # Define shared volume and set default command
-VOLUME /share
+VOLUME /usr/local/vast-tools/share
 CMD ["bash"]
