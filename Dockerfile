@@ -45,6 +45,11 @@ RUN mkdir -p /usr/local/vast-tools/VASTDB
 WORKDIR /usr/local/vast-tools
 RUN /usr/local/vast-tools/automatic_Hsa_Mmus_install.R --quiet
 
+# Clone the specified repository
+RUN git clone https://gitlab.com/aghr/matt.git /usr/local/matt && \
+    chmod u+rwx /usr/local/matt/INSTALL && \
+    /usr/local/matt/INSTALL
+
 # Define shared volume and set default command
 VOLUME /usr/local/vast-tools/share
 CMD ["bash"]
