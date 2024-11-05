@@ -45,10 +45,13 @@ RUN mkdir -p /usr/local/vast-tools/VASTDB
 WORKDIR /usr/local/vast-tools
 RUN /usr/local/vast-tools/automatic_Hsa_Mmus_install.R --quiet
 
-# Clone the specified repository
+# Clone the repository
 RUN git clone https://gitlab.com/aghr/matt.git /usr/local/matt && \
     chmod u+rwx /usr/local/matt/INSTALL && \
     /usr/local/matt/INSTALL
+
+# Add the directory containing the matt executable to the PATH
+ENV PATH="/usr/local/matt:${PATH}"
 
 # Define shared volume and set default command
 VOLUME /usr/local/vast-tools/share
